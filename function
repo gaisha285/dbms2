@@ -1,0 +1,6 @@
+CREATE OR REPLACE FUNCTION count_records(customer IN VARCHAR2) RETURN NUMBER IS
+  v_count NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO v_count FROM customer;
+  RETURN v_count;
+END;
