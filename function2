@@ -1,0 +1,8 @@
+CREATE OR REPLACE FUNCTION count_free_delivery
+RETURN NUMBER 
+IS 
+  v_count NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO v_count from orders where total_price>=50;
+  return v_count;
+END;
