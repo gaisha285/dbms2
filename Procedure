@@ -1,0 +1,10 @@
+CREATE OR REPLACE PROCEDURE group_info IS
+CURSOR c_info IS
+SELECT category_id, SUM(price) AS total_price, COUNT(*) AS product_count
+FROM product
+GROUP BY category_id;
+BEGIN
+FOR rec_info IN c_info LOOP
+DBMS_OUTPUT.PUT_LINE('Category_id: ' || rec_info.category_id || ', Total Price: ' || rec_info.total_price || ', Product Count: ' || rec_info.product_count);
+END LOOP;
+END;
