@@ -1,0 +1,11 @@
+CREATE OR REPLACE TRIGGER update_order_total
+AFTER INSERT ON order_items
+FOR EACH ROW
+DECLARE
+  item_price NUMBER;
+  new_total NUMBER;
+BEGIN
+  SELECT price INTO item_price FROM product WHERE id = :NEW.id;
+  new_total := item_price;
+  UPDATE orders SET total_price = total_price + new_total WHERE id = :NEW.id;
+END;
