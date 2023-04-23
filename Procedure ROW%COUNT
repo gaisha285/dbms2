@@ -2,7 +2,7 @@ CREATE OR REPLACE PROCEDURE count_rows
 IS
     total_rows NUMBER;
 BEGIN
-    DELETE FROM product WHERE product_name = 'iphone 12';
+    DELETE FROM delivery WHERE delevery_type = 'self-call';
     
     total_rows := SQL%ROWCOUNT;
     
