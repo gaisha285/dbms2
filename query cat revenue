@@ -1,0 +1,12 @@
+DECLARE
+  category_name VARCHAR2(50) := 'technique';
+  total_revenue NUMBER(10,2);
+BEGIN
+  SELECT SUM(order_items.quantity * product.price) INTO total_revenue
+  FROM order_items
+  JOIN product ON order_items.product_id = product.id
+  JOIN category ON product.category_id = category.id
+  WHERE category.category_name = category_name;
+  
+  DBMS_OUTPUT.PUT_LINE('Total revenue for category '  category_name  ': $' || total_revenue);
+END;
