@@ -1,0 +1,7 @@
+DECLARE
+  category_id NUMBER := 1;
+BEGIN
+  UPDATE product
+  SET price = price * 1.1
+  WHERE category_id = category_id;
+END;
