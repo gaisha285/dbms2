@@ -2,7 +2,7 @@ CREATE OR REPLACE PROCEDURE count_rows
 IS
     total_rows NUMBER;
 BEGIN
-    UPDATE product SET price = price * 1.1 WHERE product_name = 'iphone 12';
+    DELETE FROM product WHERE product_name = 'iphone 12';
     
     total_rows := SQL%ROWCOUNT;
     
