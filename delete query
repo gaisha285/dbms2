@@ -1,0 +1,6 @@
+DECLARE
+  delete_date DATE := TO_DATE('03/01/2023'); 
+BEGIN
+  DELETE FROM order_items WHERE order_id IN (SELECT order_id FROM orders WHERE order_date < delete_date);
+  DELETE FROM orders WHERE order_date < delete_date;
+END;
