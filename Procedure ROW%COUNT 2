@@ -1,0 +1,13 @@
+CREATE OR REPLACE PROCEDURE new_orders IS 
+row_count NUMBER;
+BEGIN 
+INSERT INTO orders (id, order_date, customer_id, delivery_type, total_price)
+VALUES ('16', '04/24/2023', '12', 'postomat', '98');
+row_count :=SQL%ROWCOUNT;
+DBMS_OUTPUT.PUT_LINE('Number of rows affected:' || row_count);
+END;
+/
+
+begin
+new_orders;
+end;
