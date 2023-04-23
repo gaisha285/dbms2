@@ -1,0 +1,11 @@
+DECLARE
+  product_id NUMBER := 5; 
+BEGIN
+  DELETE FROM order_items
+  WHERE product_id = product_id;
+
+  DELETE FROM product
+  WHERE product_id = product_id;
+
+  DBMS_OUTPUT.PUT_LINE('Product '  product_id  ' and associated order items deleted.');
+END;
