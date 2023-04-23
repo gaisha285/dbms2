@@ -1,0 +1,10 @@
+CREATE OR REPLACE PROCEDURE count_rows 
+IS
+    total_rows NUMBER;
+BEGIN
+    UPDATE product SET price = price * 1.1 WHERE product_name = 'iphone 12';
+    
+    total_rows := SQL%ROWCOUNT;
+    
+    DBMS_OUTPUT.PUT_LINE('Total rows affected: ' || total_rows);
+END;
