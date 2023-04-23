@@ -1,0 +1,10 @@
+DECLARE
+  start_date DATE := '2022-01-01';
+  end_date DATE := '2022-12-31';
+  total_revenue NUMBER;
+BEGIN
+  SELECT SUM(total_price) INTO total_revenue FROM orders
+  WHERE order_date BETWEEN start_date AND end_date;
+  
+  DBMS_OUTPUT.PUT_LINE('Total revenue for '  start_date  ' to '  end_date  ': ' || total_revenue);
+END;
